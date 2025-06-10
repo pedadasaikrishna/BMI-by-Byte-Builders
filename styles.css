@@ -1,0 +1,487 @@
+/* ========== Reset & Root ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #005f73;
+  --secondary: #0a9396;
+  --accent: #94d2bd;
+  --bg: #f0f5f9;
+  --text: #001219;
+}
+
+/* ========== Base Styles ========== */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ========== Navbar ========== */
+.navbar {
+  background: var(--primary);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: #fff;
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links li button {
+  background-color: #ff4d4d;
+  border: none;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.nav-links li button:hover {
+  background-color: #e60000;
+}
+
+/* ========== Hero Section ========== */
+.hero {
+  background: var(--accent);
+  text-align: center;
+  padding: 6rem 2rem;
+  animation: fadeIn 1.2s ease-out;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  background: var(--secondary);
+  color: #fff;
+  padding: 0.8rem 1.8rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background: var(--primary);
+}
+
+/* ========== Features Section ========== */
+.features {
+  max-width: 1200px;
+  margin: auto;
+  padding: 3rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+}
+/* Popup base styles */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup-content {
+  background: #fff;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.4s ease-out;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+}
+
+.close:hover {
+  color: #000;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Badges for categories */
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.badge.under { background: #f39c12; }
+.badge.normal { background: #27ae60; }
+.badge.over { background: #e67e22; }
+.badge.obese { background: #c0392b; }
+.plan {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.plan li {
+  margin-bottom: 1rem; /* space between list items */
+  line-height: 1.6;
+  background: #ffffff; /* night mode background */
+  color: #000000;
+  padding: 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.plan li:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ========== Forms ========== */
+.form-container {
+  max-width: 500px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+form input,
+form button {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  background: var(--secondary);
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: var(--primary);
+}
+
+.error {
+  color: #d00000;
+  font-size: 0.9rem;
+}
+
+/* ========== Dashboard & Sections ========== */
+.dashboard {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.dashboard h2,
+.dashboard p {
+  margin-bottom: 1rem;
+}
+
+.calculator,
+.diet-plan {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+/* ========== Calculator ========== */
+.calculator {
+  background: #f9f9f9;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+}
+
+.calculator input {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 1rem auto;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.calculator button {
+  background-color: #0d6efd;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.calculator button:hover {
+  background-color: #084fc7;
+}
+
+.bmi-output {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+}
+
+/* ========== BMI Info Cards ========== */
+.bmi-info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.bmi-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.bmi-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ========== Diet Plan ========== */
+.diet-plan {
+  background: #f0fff0;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+  transition: all 0.3s ease;
+}
+.diet-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.meal-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem;
+  color: #000000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+}
+.meal-card:hover {
+  transform: translateY(-5px);
+}
+
+.meal-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #2744ff;
+}
+
+.diet-tip {
+  background: #ffffff;
+  color: #000000;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  border-radius: 10px;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+.generate-btn {
+  padding: 10px 20px;
+  margin-top: 1rem;
+  background-color: #5d9cec;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.generate-btn:hover {
+  background-color: #4a89dc;
+}
+
+/* ========== Footer ========== */
+footer {
+  background: var(--primary);
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* ========== Animations ========== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 600px) {
+  .hero {
+    padding: 4rem 1rem;
+  }
+  .nav-links {
+    display: none;
+  }
+  .nav-container {
+    justify-content: center;
+  }
+}
+.category {
+  font-weight: bold;
+  color: #4ade80;
+}
+
+.diet-list {
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.diet-list li {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.animate-fade {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide {
+  animation: slideIn 0.6s ease-out;
+}
+
+.animate-grow {
+  animation: growIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes growIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+
+/* =================
+ */
+
+ .redirect-msg {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.redirect-msg a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.redirect-msg a:hover {
+  text-decoration: underline;
+}

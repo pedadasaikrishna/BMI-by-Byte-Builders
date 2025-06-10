@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | BMI‑WebApp</title>
+  <link rel="stylesheet" href="styles.css" />
+  
+  <script type="module" src="app.js"></script>
+  <!-- Firebase SDK -->
+<script type="module" src="dashboard.js" defer></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="dashboard.html" class="logo">🌞 BMI</a>
+      <ul class="nav-links">
+        <li><button onclick="logout()">🚪 Logout</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="dashboard">
+    <div class="welcome-box animate-fade">
+      <h1 id="welcome">👋 Welcome, User!</h1>
+      <p>This platform helps you track your BMI and receive a personalized diet plan for a healthier lifestyle.</p>
+    </div>
+
+    <div class="bmi-section">
+      <div class="calculator animate-slide">
+        <h2>📊 Check Your Body Mass Index</h2>
+        <input id="height" type="number" placeholder="Enter height (cm)" required />
+        <input id="weight" type="number" placeholder="Enter weight (kg)" required />
+        <button id="calc-btn">Calculate BMI</button>
+        <div id="bmi-result" class="bmi-output"></div>
+      </div>
+
+    </div>
+
+    <div class="diet-plan animate-grow" id="diet-plan">
+      <!-- Diet plan will show up here dynamically -->
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 BMI‑WebApp | Stay healthy, stay strong 💪</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My BMI WebApp</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">BMI</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <h1>Welcome to Your Personal Health Companion</h1>
+    <p>Track your Body Mass Index and get a tailored diet plan.</p>
+    <a href="signup.html" class="cta-button">Get Started</a>
+  </header>
+
+  <main>
+<section class="features">
+  <!-- Real-Time BMI -->
+  <div class="feature-card" onclick="openPopup('bmiInfo')">
+    <h2>Real-Time BMI</h2>
+    <p>Click to learn how BMI is calculated with a visual example.</p>
+  </div>
+
+  <!-- BMI Categories -->
+  <div class="feature-card" onclick="openPopup('bmiCategories')">
+    <h2>BMI Categories</h2>
+    <p>Understand what your BMI means for your health.</p>
+  </div>
+
+  <!-- Diet Plans -->
+  <div class="feature-card" onclick="openPopup('dietPlans')">
+    <h2>Diet Plans</h2>
+    <p>Find out what to eat based on your BMI category.</p>
+  </div>
+</section>
+<!-- Real-Time BMI Info Popup -->
+<div id="bmiInfo" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup('bmiInfo')">&times;</span>
+    <h3>Real-Time BMI Formula</h3>
+    <p><strong>Formula:</strong> <code>BMI = weight (kg) / (height (m))²</code></p>
+    <p>If your height is in cm, convert it to meters:</p>
+    <code>height / 100</code>
+
+    <p><strong>Example:</strong></p>
+    <code>70kg, 170cm → 70 / (1.7 × 1.7) = 24.2</code>
+
+    <p>Your BMI: <strong>24.2</strong> → <span class="badge normal">Normal</span></p>
+  </div>
+</div>
+
+<!-- BMI Categories Info Popup -->
+<div id="bmiCategories" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup('bmiCategories')">&times;</span>
+    <h3>BMI Categories</h3>
+    <ul  class="plan">
+      <li><strong>Underweight:</strong> BMI &lt; 18.5</li>
+      <li><strong>Normal:</strong> BMI 18.5 – 24.9</li>
+      <li><strong>Overweight:</strong> BMI 25 – 29.9</li>
+      <li><strong>Obese:</strong> BMI ≥ 30</li>
+    </ul>
+    <p>Keep track and stay healthy 💪</p>
+  </div>
+</div>
+
+<!-- Diet Plans Info Popup -->
+<div id="dietPlans" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup('dietPlans')">&times;</span>
+    <h3>Diet Plans by BMI</h3>
+    <ul class="plan">
+      <li><span class="badge under">Underweight:</span> High-calorie diet with healthy fats, nuts, eggs, and dairy.</li>
+      <li><span class="badge normal">Normal:</span> Balanced diet with grains, lean meats, and veggies.</li>
+      <li><span class="badge over">Overweight:</span> Fiber-rich and low-carb meals. Avoid sugar & saturated fats.</li>
+      <li><span class="badge obese">Obese:</span> Very low-sugar, calorie deficit, high-protein, and doctor consultation.</li>
+    </ul>
+  </div>
+</div>
+<script>
+  function openPopup(id) {
+    document.getElementById(id).style.display = 'block';
+  }
+
+  function closePopup(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+
+  window.onclick = function (e) {
+    const popups = document.querySelectorAll('.popup');
+    popups.forEach(popup => {
+      if (e.target === popup) popup.style.display = 'none';
+    });
+  };
+</script>
+
+  </main>
+
+  <footer>
+    <p>© 2025 BMI‑WebApp. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
